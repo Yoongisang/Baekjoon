@@ -23,11 +23,6 @@ int main()
 		{
 			c++;
 		}
-		else
-		{
-			printf("다시 입력하시오\n");
-			scanf("%d", &answer[i]);
-		}
 	}
 	if (c > nC)
 	{
