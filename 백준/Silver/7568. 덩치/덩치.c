@@ -13,16 +13,14 @@ int main()
 {
     int N ;
     scanf("%d", &N);
-    status* s = (status*)malloc(N * sizeof(status));
+
+    status* s = (status*)calloc(N, sizeof(status));
     if (s == NULL)
     {
         fprintf(stderr, "메모리 할당 실패\n");
         return 1;
     }
-    for (int i = 0; i < N; i++)
-    {
-        s[i].rank = 0;
-    }
+ 
     for (int i = 0; i < N; i++)
     {
         scanf("%d %d", &s[i].weight, &s[i].height);
