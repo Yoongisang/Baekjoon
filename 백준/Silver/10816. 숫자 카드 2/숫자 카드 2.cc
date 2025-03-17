@@ -1,35 +1,31 @@
 #include <iostream>
 #include <algorithm>
-#include <unordered_set>
+#include <unordered_map>
 
 using namespace std;
 
 int main()
 {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 	int N, M;
 	cin >> N;
 
-	int* A = new int[N];
+	unordered_map<int, int> freq;
+
 	for (int i = 0; i < N; i++)
 	{
-		cin >> A[i];
+		int x;
+		cin >> x;
+		freq[x]++;
 	}
-	sort(A, A + N);
 
 	cin >> M;
-	int* B = new int[M];
 	for (int i = 0; i < M; i++)
 	{
-		cin >> B[i];
+		int x;
+		cin >> x;
+		cout << freq[x] << " ";
 	}
-	for (int i = 0; i < M; i++)
-	{
-		int count = upper_bound(A, A + N, B[i]) - lower_bound(A, A + N, B[i]);
-		cout << count << " ";
-	}
-
-	delete[] A;
-	delete[] B;
-
 	return 0;
 }
