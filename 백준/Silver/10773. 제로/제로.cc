@@ -10,19 +10,19 @@ int main()
 {
     int k;
     cin >> k;
-    int* num = new int[k];
+    int num;
     int sum = 0;
     stack<int> s;
     for (int i = 0; i < k; i++)
     {
-        cin >> num[i];
-        if (num[i] == 0)
+        cin >> num;
+        if (num == 0)
         {
             s.pop();
         }
         else
         {
-            s.push(num[i]);
+            s.push(num);
         }
     
     }
@@ -34,6 +34,5 @@ int main()
     }
     cout << sum << endl;
    
-    delete[] num;
     return 0; 
 }
