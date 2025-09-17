@@ -25,14 +25,14 @@ int main()
 	int sum = 0;
 
 
-	map<string, string> name;
-	map<string, string> name_list;
+	map < string, bool > name;
+	vector<string> result;
 
 	for (int i = 0; i < n; i++)
 	{
 		string temp;
 		cin >> temp;
-		name[temp] = temp;
+		name[temp] = true;
 	}
 
 
@@ -41,20 +41,20 @@ int main()
 	{
 		string temp;
 		cin >> temp;
-		if (!name[temp].empty())
+		if (name[temp])
 		{
-			name_list[temp] = name[temp];
+			result.push_back(temp);
 			sum++;
 		}
-		else
-		{
-			continue;
-		}
 	}
+
+	sort(result.begin(), result.end());
+
 	cout << sum << "\n";
-	for (auto& pair : name_list)
+
+	for (int i = 0; i < sum; i++)
 	{
-		cout << pair.second << "\n";
+		cout << result[i] << "\n";
 	}
 	
 	return 0;
