@@ -4,21 +4,20 @@
 
 using namespace std;
 
-vector<long> P(101, 0);
+vector<long long> P(101, 0);
 
-long DP(int N)
+void DP()
 {
 	P[0] = 0;
 	P[1] = 1;
 	P[2] = 1;
 	P[3] = 1;
 	P[4] = 2;
-	for (int i = 5; i <= N; i++)
+	for (int i = 5; i <= 100; i++)
 	{
 		P[i] = P[i - 1] + P[i - 5];
 	}
 
-	return P[N];
 }
 
 int main()
@@ -26,16 +25,16 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
+	DP();
+
 	int T;
 	cin >> T;
 	for (int i = 0; i < T; i++)
 	{
 		int N;
-		long result;
 		cin >> N;
-		result = DP(N);
 
-		cout << result << '\n';
+		cout << P[N] << '\n';
 	}
 	
 	return 0;
