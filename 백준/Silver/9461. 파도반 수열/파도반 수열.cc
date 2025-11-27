@@ -6,7 +6,7 @@ using namespace std;
 
 vector<long> P(101, 0);
 
-long long DP(int N)
+long DP(int N)
 {
 	P[0] = 0;
 	P[1] = 1;
@@ -31,7 +31,7 @@ int main()
 	for (int i = 0; i < T; i++)
 	{
 		int N;
-		long long result;
+		long result;
 		cin >> N;
 		result = DP(N);
 
