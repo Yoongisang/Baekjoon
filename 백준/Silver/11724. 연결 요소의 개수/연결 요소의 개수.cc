@@ -4,7 +4,9 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> graph[1001];
+//vector<int> graph[1001];
+vector<vector<int>> graph;
+
 vector<bool> visited;
 int c = 0;
 
@@ -31,6 +33,7 @@ int main()
 	int N, M;
 	cin >> N >> M;
 
+	graph.resize(N + 1);
 	visited.resize(N + 1, false);
 
 	for (int i = 1; i <= M; i++)
