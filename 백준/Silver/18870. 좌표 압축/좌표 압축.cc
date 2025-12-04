@@ -1,4 +1,4 @@
-// 실버2 11724번 연결 요소의 개수(그래프)
+// 실버2 18870번 좌표 압축(정렬)
 #include <iostream>
 #include <vector>
 #include <algorithm>
