@@ -31,6 +31,7 @@ int main()
     //  주어진 땅의 높이와 가지고있는 블록의 갯수를 이용해서 가능한 땅의 높이를 전부 구한다
     while (H <= 256)
     {
+        //  while문 안에서 성공한 걸리는 시간과 한바퀴 돌았을때의 가지고잇는 블록 갯수를 저장하기 위한 임시 변수
         int tempT = 0;
         int tempB = B;
         for (int i = 0; i < N; i++)
@@ -43,7 +44,7 @@ int main()
                     tempT += diff * 2;
                     tempB += diff;
                 }
-                if (H > v[i][j])
+                else if (H > v[i][j])
                 {
                     int diff = H - v[i][j];
                     tempT += diff;
