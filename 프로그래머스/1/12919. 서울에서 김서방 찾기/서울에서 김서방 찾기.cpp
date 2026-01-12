@@ -8,11 +8,9 @@ string solution(vector<string> seoul) {
     int count = 0;
     for (auto& s : seoul)
     {
-        if (!s.find("Kim"))
+        if (s == "Kim")
         {
-            answer = "김서방은 ";
-            answer += to_string(count);
-            answer += "에 있다";
+            answer = "김서방은 " + to_string(count) + "에 있다";
         }
         count++;
     }
