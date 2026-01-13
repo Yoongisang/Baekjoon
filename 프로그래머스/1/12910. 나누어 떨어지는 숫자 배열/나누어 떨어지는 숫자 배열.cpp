@@ -6,6 +6,7 @@ using namespace std;
 
 vector<int> solution(vector<int> arr, int divisor) {
     vector<int> answer;
+    sort(arr.begin(), arr.end());
     
     for (auto& a : arr)
     {
@@ -15,15 +16,5 @@ vector<int> solution(vector<int> arr, int divisor) {
         }
     }
     
-    if (answer.empty())
-    {
-        answer.emplace_back(-1);
-    }
-    else
-    {
-         sort(answer.begin(), answer.end());
-    }
-   
-    
-    return answer;
+    return answer.empty() ? vector<int>(1, -1) : answer;
 }
