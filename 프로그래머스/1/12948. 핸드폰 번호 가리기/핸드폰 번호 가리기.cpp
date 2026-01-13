@@ -10,12 +10,10 @@ string solution(string phone_number) {
     {
         if (i < length - 4)
         {
-            answer.push_back('*');
-        }
-        else
-        {
-            answer.push_back(phone_number[i]);
+            phone_number[i] = '*';
         }
     }
+    
+    answer = phone_number;
     return answer;
 }
