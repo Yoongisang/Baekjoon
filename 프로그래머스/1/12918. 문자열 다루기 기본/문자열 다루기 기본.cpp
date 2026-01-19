@@ -12,7 +12,7 @@ bool solution(string s) {
     
     for (auto& str : s)
     {
-        if (str < '0' || str > '9')
+        if (isdigit(str) == false)
         {
             return false;
         }
