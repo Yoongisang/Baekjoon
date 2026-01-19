@@ -2,19 +2,15 @@ using namespace std;
 
 long long solution(int price, int money, int count)
 {
-    long long answer = -1;
-    answer = money;
-    for (int i = 1; i <= count; ++i)
-    {
-        answer -= price * i;
-    }
-    if (answer >= 0)
+    long long answer = price;
+    answer = answer * (count * (count + 1) / 2);
+    if (answer <= money)
     {
         answer = 0;
     }
     else
     {
-        answer = answer * -1;
+        answer = answer - money;
     }
     return answer;
 }
