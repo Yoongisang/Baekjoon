@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> solution(int n, int m) {
     vector<int> answer;
-    int lcd = n * m; 
+    int lcm = n * m; 
     int gcd;
     while (m != 0)
     {
@@ -14,8 +14,8 @@ vector<int> solution(int n, int m) {
         n = temp;
     }
     gcd = n;
-    lcd = lcd / gcd;
+    lcm = lcm / gcd;
     answer.push_back(gcd);
-    answer.push_back(lcd);
+    answer.push_back(lcm);
     return answer;
 }
