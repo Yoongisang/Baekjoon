@@ -1,18 +1,20 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main(void) {
-    int a;
-    int b;
-    cin >> a >> b;
-    for (int i = 0; i < b; ++i)
+    int n;
+    int m;
+    string s;
+    cin >> n >> m;
+    
+    s.append(n, '*');
+    
+    for (int i = 0; i < m; ++i)
     {
-        for (int j = 0; j < a; ++j)
-        {
-            cout << "*";
-        }
-        cout << '\n';
+        cout << s << '\n';
     }
+    
     return 0;
 }
