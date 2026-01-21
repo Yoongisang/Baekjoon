@@ -1,20 +1,20 @@
 #include <string>
 #include <vector>
-#include <ctype.h>
+#include <cctype>  
 
 using namespace std;
 
 string solution(string s) {
-    int count = 1;
+    int count = 0;
     for (auto& c : s)
     {
         if (c == ' ')
         {
-            count = 1;
+            count = 0;
         }
         else
         {
-            if (count % 2 != 0)
+            if (count % 2 == 0)
             {
                 c = toupper(c);
             }
@@ -24,9 +24,6 @@ string solution(string s) {
             }
             count++;
         }
-  
-       
-   
     }
     return s;
 }
