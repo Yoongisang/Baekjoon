@@ -13,13 +13,7 @@ int solution(int n) {
         n /= 3;
     }
 
-    int base = 1;
-    
-    for (int i = s.size() - 1; i >= 0; --i)
-    {
-        answer += (s[i] - '0') * base;
-        base *= 3;
-    }
+    answer = stoi(s, nullptr, 3);
     
     return answer;
 }
