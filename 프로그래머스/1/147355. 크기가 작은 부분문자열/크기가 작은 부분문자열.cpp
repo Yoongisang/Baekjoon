@@ -7,19 +7,10 @@ int solution(string t, string p) {
    
     int answer = 0;
     int l = p.size();
-    answer = 0;
-    for (int i = 0; i < t.size() - l + 1; ++i)
+
+    for (int i = 0; i <= t.size() - l; ++i)
     {
-        int temp_t = 0;
-        int temp_p = 0;
-        
-        string s = "";
-        
-        for (int j = i; j < i + l; ++j)
-        {
-            s += t[j];
-        }
-        
+        string s = t.substr(i, l);
         
         if (s <= p)
             answer++;
