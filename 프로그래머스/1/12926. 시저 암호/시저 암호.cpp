@@ -4,29 +4,15 @@
 using namespace std;
 
 string solution(string s, int n) {
-    for (int i = 0; i < s.size(); i++)
+    for (auto& a : s)
     {
-        if (s[i] >= 'a' && s[i] <= 'z')
+        if (a >= 'a' && a <= 'z')
         {
-            if (s[i] + n > 'z')
-            {
-                s[i] = s[i] + n - 26;
-            }
-            else
-            {
-                s[i] += n;
-            }
+            a = (a - 'a' + n) % 26 + 'a';
         }
-        else if (s[i] >= 'A' && s[i] <= 'Z')
+        else if (a >= 'A' && a <= 'Z')
         {
-            if (s[i] + n > 'Z')
-            {
-                s[i] = s[i] + n - 26;
-            }
-            else
-            {
-                s[i] += n;
-            }
+            a = (a - 'A' + n) % 26 + 'A';
         }
     }
     
