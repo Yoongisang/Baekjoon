@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <cctype>
 #include <regex>
 
 using namespace std;
@@ -8,7 +7,6 @@ using namespace std;
 int solution(string s) {
     int answer;
     vector<string> numbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    regex r;
     
     for (int i = 0; i < numbers.size(); i++)
     {
