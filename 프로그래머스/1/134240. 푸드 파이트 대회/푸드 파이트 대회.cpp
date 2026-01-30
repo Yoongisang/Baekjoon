@@ -5,7 +5,6 @@ using namespace std;
 
 string solution(vector<int> food) {
     string answer = "";
-    string temp;
     
     int l = food.size();
     for (int i = 1; i < l; i++)
@@ -17,8 +16,9 @@ string solution(vector<int> food) {
         }
     }
     
-    temp.assign(answer.rbegin(), answer.rend());
-    answer += '0' + temp;
+    string temp(answer.rbegin(), answer.rend());
+    
+    answer += "0" + temp;
     
     return answer;
 }
