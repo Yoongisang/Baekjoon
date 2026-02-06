@@ -30,11 +30,11 @@ vector<int> solution(vector<int> answers) {
         }
     }
     
-    auto num = max_element(score.begin(), score.end());
+    int max_num = *max_element(score.begin(), score.end());
     
     for (int i = 0; i < 4; i++)
     {
-        if (score[i] == *num)
+        if (score[i] == max_num)
         {
             answer.emplace_back(i);
         }
