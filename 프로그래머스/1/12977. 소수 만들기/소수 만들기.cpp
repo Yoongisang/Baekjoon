@@ -20,6 +20,8 @@ int solution(vector<int> nums) {
     
     for (auto& n : num)
     {
+        if (n % 2 == 0) continue;
+        
         bool prime = true;
         
         if (n % 2 != 0)
