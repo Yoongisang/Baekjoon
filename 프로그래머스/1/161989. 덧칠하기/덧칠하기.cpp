@@ -5,25 +5,21 @@
 using namespace std;
 
 int solution(int n, int m, vector<int> section) {
-    int answer = 0;
-    int m_size = m;
-    // 8 4
-    // 8 7 6 5 4 3 2 1
-    //     o
+    int answer = 1;
+    int start = section.front();
+    
     if (m == 1)
         return section.size();
     
-    for (int i = section.front(); i <= section.back(); i += m_size)
+    for (auto& s : section)
     {
-        if (find(section.begin(), section.end(), i) != section.end())
+        if (s < start + m)
         {
-            answer++;
-            m_size = m;
+            continue;
         }
-        else
-        {
-            m_size = 1;
-        }
+
+        start = s;
+        answer++;
     }
     return answer;
 }
