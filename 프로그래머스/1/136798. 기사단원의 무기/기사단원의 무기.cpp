@@ -9,8 +9,7 @@ int solution(int number, int limit, int power) {
     for (int i = 1; i <= number; i++)
     {
         int temp = 0;
-        // 4 1 2 4
-        // 6 1 2 3 6
+
         if (i == 1)
         {
             answer++;
