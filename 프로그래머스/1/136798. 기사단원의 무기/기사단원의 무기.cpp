@@ -18,24 +18,19 @@ int solution(int number, int limit, int power) {
         
         for (int j = 1; j * j <= i; j++)
         {
-            if (j * j != i && i % j == 0)
+            if (i % j == 0)
             {
-                temp += 2;
-            }
-            else if (j * j == i)
-            {
-                temp += 1;
+                if (j * j == i)
+                    temp++;
+                else
+                    temp += 2;
             }
         }
         
         if (temp <= limit)
-        {
             answer += temp;
-        }
         else
-        {
             answer += power;
-        }
     }
     return answer;
 }
