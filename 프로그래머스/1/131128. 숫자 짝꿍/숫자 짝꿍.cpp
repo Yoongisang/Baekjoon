@@ -23,8 +23,10 @@ string solution(string X, string Y) {
             answer += s;
         }
     }
+    
     if (answer == "")
         answer = "-1";
+    
     if (all_of(answer.begin(), answer.end(), [](char c){ return c == '0'; }))
         answer = "0";
     return answer;
