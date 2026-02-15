@@ -7,7 +7,6 @@ using namespace std;
 int solution(string s) {
     char c = '\0';
     int answer = 0, count = 0, count_x = 0, index = 1;
-    map<int, string> m;
     
 
     for (auto& str : s)
@@ -18,15 +17,12 @@ int solution(string s) {
         if (str == c)
         {
             count++;
-            m[index] += str;
         }
         else
         {
             count_x++;
-            m[index] += str;
             if (count == count_x)
             {
-                index++;
                 count = 0;
                 count_x = 0;
                 c = '\0';
@@ -34,6 +30,9 @@ int solution(string s) {
             }
         }
     }
-    answer = m.size();
+    
+    if (count > 0)
+        answer++;
+    
     return answer;
 }
