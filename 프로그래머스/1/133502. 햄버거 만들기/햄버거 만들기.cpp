@@ -1,25 +1,34 @@
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <stack>
 
 using namespace std;
 
 int solution(vector<int> ingredient) {
     int answer = 0;
-    vector<int> num = {1, 2, 3, 1};
+    vector<int> v = { -1 };
     
-    if (ingredient.size() < 4)
-        return 0;
-    
-    for (int i = 0; i <= (int)ingredient.size() - 4; i++)
+    for (const auto& i : ingredient)
     {
-        vector<int> temp = {ingredient[i], ingredient[i + 1], ingredient[i + 2], ingredient[i + 3]};
-        if (temp == num)
+        
+        if (v.back() == 1 && i == 2)
         {
+            v.back() = 12;
+        }
+        else if (v.back() == 12 && i == 3)
+        {
+            v.back() = 123;
+        }
+        else if(v.back() == 123 && i == 1)
+        {
+            v.pop_back();
             answer++;
-            ingredient.erase(ingredient.begin() + i, ingredient.begin() + i + 4);
-            i = max(-1, i - 5); 
+        }
+        else
+        {
+            v.emplace_back(i);
         }
     }
+
     return answer;
 }
