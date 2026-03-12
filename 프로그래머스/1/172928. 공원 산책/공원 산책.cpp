@@ -7,7 +7,7 @@ using namespace std;
 vector<int> solution(vector<string> park, vector<string> routes) {
     vector<int> answer;
     int x, y;
-
+    
     for (int i = 0; i < park.size(); i++)
     {
         for (int j = 0; j < park[i].size(); j++)
@@ -21,74 +21,34 @@ vector<int> solution(vector<string> park, vector<string> routes) {
         }
     }
 
+    int dy[] = {-1, 1, 0, 0};
+    int dx[] = {0, 0, -1, 1};
+    string dirs = "NSWE";
+    
     for (const auto& r : routes)
     {
-       int num = 0;
-       num = r[2] - '0';
-
-        if (r[0] == 'N')
+        int num = r[2] - '0';
+        int dir = dirs.find(r[0]);
+        
+        int temp_y = y; 
+        int temp_x = x;
+        bool valid = true;
+        
+        for (int i = 0; i < num; i++)
         {
-            int temp = y;
+            temp_y += dy[dir];
+            temp_x += dx[dir];
             
-            for (int i = 0; i < num; i++)
+            if (temp_y < 0 || temp_y >= park.size() || temp_x < 0 || temp_x >= park[0].size() || park[temp_y][temp_x] == 'X')
             {
-                temp--;
-                
-                if (temp < 0 || park[temp][x] == 'X')
-                {
-                    temp = y;
-                    break;
-                }
+                valid = false;
+                break;
             }
-            y = temp;
         }
-        else if (r[0] == 'S')
+        if (valid)
         {
-            int temp = y;
-            
-            for (int i = 0; i < num; i++)
-            {
-                temp++;
-                
-                if (temp >= park.size() || park[temp][x] == 'X')
-                {
-                    temp = y;
-                    break;
-                }
-            }
-            y = temp;
-        }
-        else if (r[0] == 'W')
-        {
-            int temp = x;
-            
-            for (int i = 0; i < num; i++)
-            {
-                temp--;
-                
-                if (temp < 0 || park[y][temp] == 'X')
-                {
-                    temp = x;
-                    break;
-                }
-            }
-            x = temp;
-        }
-        else if (r[0] == 'E')
-        {
-            int temp = x;
-            
-            for (int i = 0; i < num; i++)
-            {
-                temp++;
-                
-                if (temp >= park[y].size() || park[y][temp] == 'X')
-                {
-                    temp = x;
-                    break;
-                }
-            }
-            x = temp;
+            y = temp_y;
+            x = temp_x;
         }
     }
     answer = {y, x};
