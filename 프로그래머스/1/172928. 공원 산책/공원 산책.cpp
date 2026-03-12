@@ -16,6 +16,7 @@ vector<int> solution(vector<string> park, vector<string> routes) {
             {
                 x = j;
                 y = i;
+                break;
             }
         }
     }
