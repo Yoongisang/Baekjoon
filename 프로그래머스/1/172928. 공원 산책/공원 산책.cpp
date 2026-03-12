@@ -82,7 +82,7 @@ vector<int> solution(vector<string> park, vector<string> routes) {
             {
                 temp++;
                 
-                if (temp >= park[i].size() || park[y][temp] == 'X')
+                if (temp >= park[y].size() || park[y][temp] == 'X')
                 {
                     temp = x;
                     break;
