@@ -16,6 +16,6 @@ string solution(string s) {
         num.emplace_back(stoi(token));
     }
     sort(num.begin(), num.end());
-    answer += to_string(*num.begin()) + " " + to_string(*(num.end() - 1));
+    answer += to_string(num.front()) + " " + to_string(num.back());
     return answer;
 }
