@@ -23,11 +23,6 @@ string solution(string s) {
             transform(token.begin(), token.end(), token.begin(), ::tolower);
             answer += token;
         }
-        else if (token.empty())
-        {
-            answer += ' ';
-            continue;
-        }
   
         answer += ' ';
     }
