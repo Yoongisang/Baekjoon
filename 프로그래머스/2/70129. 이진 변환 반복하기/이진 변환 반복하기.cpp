@@ -11,9 +11,10 @@ vector<int> solution(string s) {
     int zero = s.size() - one;
     while (n > 1)
     {
+        answer[1] += zero;
         int one_temp = 0;
         int zero_temp = 0;
-        answer[1] += zero;
+        
         while (one > 0)
         {
             if (one % 2 == 1)
