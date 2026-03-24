@@ -4,16 +4,18 @@
 using namespace std;
 
 long long solution(int n) {
-    long long answer = 0;
-    vector<int> v(2001);
-    v[1] = 1;
-    v[2] = 2;
+    if (n == 1)
+        return 1;
+    if (n == 2)
+        return 2;
+    
+    long long a = 1, b = 2, c = 3;
+    
     for (int i = 3; i <= n; i++)
     {
-        v[i] = (v[i - 2] + v[i - 1]) % 1234567; 
+        c = (a + b) % 1234567;
+        a = b;
+        b = c;
     }
-    answer = v[n];
-    return answer;
-    // 1 : 1 / 2 : 2 / 3 : 3 / 4 : 5 / 5 : 8 / 6 : 12
-    // 1 1 1 1 1, 1 1 1 2, 1 1 2 1, 1 2 1 1, 2 1 1 1, 1 2 2, 2 1 2, 2 2 1
+    return c;
 }
