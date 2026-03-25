@@ -3,12 +3,11 @@
 #include <map>
 #include <algorithm>
 
-
 using namespace std;
 
 int solution(int k, vector<int> tangerine) {
     int answer = 0;
-    map<int, int> list;
+    unordered_map<int, int> list;
     
     for (const auto& t : tangerine)
     {
