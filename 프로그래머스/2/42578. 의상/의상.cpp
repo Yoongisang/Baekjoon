@@ -16,9 +16,7 @@ int solution(vector<vector<string>> clothes) {
     
     for (const auto& it : m)
     {
-
         answer *= it.second + 1;
-
     }
     
     answer -= 1;
