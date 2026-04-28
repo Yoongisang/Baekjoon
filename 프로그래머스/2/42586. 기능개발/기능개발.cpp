@@ -7,7 +7,6 @@ using namespace std;
 
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> answer;
-    map<int, int> m;
     for (int i = 0; i < progresses.size(); i++)
     {
         int temp;
@@ -24,21 +23,18 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
     
     int count = 0;
     int max = progresses[0];
-    for (int i = 0; i < progresses.size(); i++)
+    for (int i = 1; i < progresses.size(); i++)
     {
-        if (i > 0)
+        if (progresses[i] > max)
         {
-            if (progresses[i] > progresses[i - 1] && progresses[i] > max)
-            {
-                max = progresses[i];
-                count++;
-            }
+            max = progresses[i];
+            answer.emplace_back(count + 1);
+            count = 0;
         }
-        m[count]++;
+        else
+            count++;
     }
-    for (const auto& it : m)
-    {
-        answer.emplace_back(it.second);
-    }
+    answer.emplace_back(count + 1);
+
     return answer;
 }
