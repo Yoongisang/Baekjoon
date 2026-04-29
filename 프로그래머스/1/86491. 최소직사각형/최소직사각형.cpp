@@ -5,13 +5,12 @@
 using namespace std;
 
 int solution(vector<vector<int>> sizes) {
-    int maxW = 0;
-    int maxH = 0;
-    for (auto& v : sizes)
+    int maxw = 0;
+    int maxh = 0;
+    for (const auto& size : sizes)
     {
-        maxW = max(maxW, max(v[0], v[1]));
-        maxH = max(maxH, min(v[0],v[1]));
+        maxw = max(maxw, max(size[0], size[1]));
+        maxh = max(maxh, min(size[0], size[1]));
     }
-    
-    return maxW * maxH;
+    return maxw * maxh;
 }
