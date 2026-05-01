@@ -7,8 +7,7 @@ using namespace std;
 
 int solution(vector<int> priorities, int location) {
     int answer = 0;
-    auto max_it = max_element(priorities.begin(), priorities.end());
-    int max_num = *max_it;
+    auto max = max_element(priorities.begin(), priorities.end());
     queue<pair<int, int>> q;
     
     for (int i = 0; i < priorities.size(); i++)
@@ -20,15 +19,14 @@ int solution(vector<int> priorities, int location) {
     {
         auto [num, idx] = q.front();
         q.pop();
-        if (num < max_num)
+        if (num < *max)
         {
             q.push({num, idx});
         }
         else
         {
-            priorities.erase(max_it);
-            max_it = max_element(priorities.begin(), priorities.end());
-            max_num = *max_it;
+            *max  = 0;
+            max = max_element(priorities.begin(), priorities.end());
             answer++;
             if (idx == location)
                 break;
